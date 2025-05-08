@@ -47,6 +47,10 @@ h1 {
   margin-bottom: 2em;
 }
 
+.menu a:hover {
+  cursor: pointer;
+}
+
 #root {
   border: 1px solid #FFF;
   padding: 25px;

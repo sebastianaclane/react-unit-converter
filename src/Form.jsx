@@ -9,9 +9,9 @@ function Form() {
 
     return (
         <form className="form grid gap-4">
-            <label for="unitamount">Enter the unit to convert</label><br/>
-            <input type="text" id="unitamount" name="unitamount"/><br/>
-            <label for="convertfrom">Unit to Convert from</label><br/>
+            <label for="unitamount">Enter the unit to convert</label>
+            <input type="text" id="unitamount" name="unitamount"/>
+            <label for="convertfrom">Unit to Convert from</label>
             <select name="convertfrom" ref={convertFromRef}>
                 <option value="millimeter">Millimeter</option>
                 <option value="centimeter">Centimeter</option>
@@ -22,7 +22,7 @@ function Form() {
                 <option value="yard">Yard</option>
                 <option value="mile">Mile</option>
             </select>     
-            <label for="convertto">Unit to Convert to</label><br/>
+            <label for="convertto">Unit to Convert to</label>
             <select name="convertto" ref={convertToRef}>
                 <option value="millimeter">Millimeter</option>
                 <option value="centimeter">Centimeter</option>

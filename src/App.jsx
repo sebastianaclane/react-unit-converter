@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Menu from './Menu';
+import Form from './Form';
 
 function App() {
   
@@ -7,9 +8,7 @@ function App() {
     <>
       <h1>React Unit Converter</h1>
       <Menu />
-      {/* <Length /> */}
-      {/* <Weight /> */}
-      {/* <Temperature /> */}
+      <Form />
     </>
   )
 }

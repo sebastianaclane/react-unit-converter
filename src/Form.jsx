@@ -10,7 +10,7 @@ function Form( {typeOfConverter} ) {
 
     return (
         <form className="form grid gap-4">
-            <label for="unitamount">Enter the {typeOfConverter} to convert</label>
+            <label for="unitamount">Enter the <strong>{typeOfConverter}</strong> to convert</label>
             <input type="text" id="unitamount" name="unitamount" ref={unitAmountRef}/>
             <label for="convertfrom">Unit to Convert from</label>
             <select name="convertfrom" ref={convertFromRef}>

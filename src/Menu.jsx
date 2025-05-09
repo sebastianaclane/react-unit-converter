@@ -2,19 +2,16 @@ import { useState } from 'react'
 
 function Menu( {changeTypeOfConverter} ) { 
     function handleMenuClick (event) {
-        // 1. Stop the link from changing page
+        // Stop the link from changing the page
         event.preventDefault();
-
+        
         let previousConverterLink = document.querySelector('.menu .active');
         let nextConverterLink = event.currentTarget;
-
-        // 2. Change to a different converter if previous converter and next converter aren't the same
+        // Change to a different converter if previous converter and next converter aren't the same
         if (previousConverterLink != nextConverterLink) {
-            // 3. Remove "active" class from previous link
             previousConverterLink.classList.remove("active");
-            // 4. Add "active" class to new selected link
             nextConverterLink.classList.add("active");
-            // 5. Change state to a different type of converter
+            // Change state to a different type of converter
             changeTypeOfConverter(nextConverterLink.dataset.unitCategory);
         }
     }

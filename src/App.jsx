@@ -5,7 +5,7 @@ import Form from './Form';
 function App() {
   const [typeOfConverter, setTypeOfConverter] = useState("length");
 
-  const changeTypeOfConverter = selectedConverter => {
+  function changeTypeOfConverter (selectedConverter) {
     setTypeOfConverter(selectedConverter);
   }
   

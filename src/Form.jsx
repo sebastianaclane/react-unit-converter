@@ -3,13 +3,13 @@ import { useState, useRef } from 'react'
 //         <form className="form grid gap-4" onSubmit={convertUnit}>
 // <label for="unitamount">Enter the {unit} to convert</label><br/>
 
-function Form() {
+function Form( {typeOfConverter} ) {
     let convertFromRef = useRef('millimeter');
     let convertToRef = useRef('millimeter');
 
     return (
         <form className="form grid gap-4">
-            <label for="unitamount">Enter the unit to convert</label>
+            <label for="unitamount">Enter the {typeOfConverter} to convert</label>
             <input type="text" id="unitamount" name="unitamount"/>
             <label for="convertfrom">Unit to Convert from</label>
             <select name="convertfrom" ref={convertFromRef}>

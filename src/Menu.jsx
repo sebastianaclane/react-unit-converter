@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 function Menu( {changeTypeOfConverter} ) { 
-    const handleMenuClick = event => {
+    function handleMenuClick (event) {
         // 1. Stop the link from changing page
         event.preventDefault();
 

@@ -31,13 +31,13 @@ function Form( {typeOfConverter} ) {
     };
 
     // Select the current unit set based on the typeOfConverter prop
-    let currentUnitSet = {};
-    if (typeOfConverter == 'length') {
-        currentUnitSet = lengthUnits;
-    } else if (typeOfConverter == 'weight') {
-        currentUnitSet = weightUnits;
-    } else if (typeOfConverter == 'temperature') {
-        currentUnitSet = tempUnits;
+    function selectCurrentUnitSet() {
+        switch(typeOfConverter) {
+            case "length": return lengthUnits;
+            case "weight": return weightUnits;
+            case "temperature": return tempUnits;
+            default: return lengthUnits;
+        }
     }
 
     return (

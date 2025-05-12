@@ -1,7 +1,4 @@
 import { useState, useRef } from 'react'
-// millimeter, centimeter, meter, kilometer, inch, foot, yard, mile.
-//         <form className="form grid gap-4" onSubmit={convertUnit}>
-// <label for="unitamount">Enter the {unit} to convert</label><br/>
 
 function Form( {typeOfConverter} ) {
     let unitAmountRef = useRef('');

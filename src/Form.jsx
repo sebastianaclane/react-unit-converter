@@ -35,9 +35,9 @@ function Form( {typeOfConverter} ) {
 
     return (
         <form className="form grid gap-4">
-            <label for="unitamount">Enter the <strong>{typeOfConverter}</strong> to convert</label>
+            <label htmlFor="unitamount">Enter the <strong>{typeOfConverter}</strong> to convert</label>
             <input type="text" id="unitamount" name="unitamount" ref={unitAmountRef}/>
-            <label for="convertfrom">Unit to Convert from</label>
+            <label htmlFor="convertfrom">Unit to Convert from</label>
             <select name="convertfrom" ref={convertFromRef}>
                 <option value="millimeter">Millimeter</option>
                 <option value="centimeter">Centimeter</option>
@@ -48,7 +48,7 @@ function Form( {typeOfConverter} ) {
                 <option value="yard">Yard</option>
                 <option value="mile">Mile</option>
             </select>     
-            <label for="convertto">Unit to Convert to</label>
+            <label htmlFor="convertto">Unit to Convert to</label>
             <select name="convertto" ref={convertToRef}>
                 <option value="millimeter">Millimeter</option>
                 <option value="centimeter">Centimeter</option>

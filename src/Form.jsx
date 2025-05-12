@@ -30,13 +30,14 @@ function Form( {typeOfConverter} ) {
         kelvin: "Kelvin" 
     };
 
-    let currentUnitOptions = {};
+    // Select the current unit set based on the typeOfConverter prop
+    let currentUnitSet = {};
     if (typeOfConverter == 'length') {
-        currentUnitOptions = lengthUnits;
+        currentUnitSet = lengthUnits;
     } else if (typeOfConverter == 'weight') {
-        currentUnitOptions = weightUnits;
+        currentUnitSet = weightUnits;
     } else if (typeOfConverter == 'temperature') {
-        currentUnitOptions = tempUnits;
+        currentUnitSet = tempUnits;
     }
 
     return (

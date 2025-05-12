@@ -55,25 +55,11 @@ function Form( {typeOfConverter} ) {
             <input type="text" id="unitamount" name="unitamount" ref={unitAmountRef}/>
             <label htmlFor="convertfrom">Unit to Convert from</label>
             <select id="convertfrom" name="convertfrom" ref={convertFromRef}>
-                <option value="millimeter">Millimeter</option>
-                <option value="centimeter">Centimeter</option>
-                <option value="meter">Meter</option>
-                <option value="kilometer">Kilometer</option>
-                <option value="inch">Inch</option>
-                <option value="foot">Foot</option>
-                <option value="yard">Yard</option>
-                <option value="mile">Mile</option>
-            </select>     
+                {renderUnitOptions()}
+            </select>
             <label htmlFor="convertto">Unit to Convert to</label>
             <select id="convertto" name="convertto" ref={convertToRef}>
-                <option value="millimeter">Millimeter</option>
-                <option value="centimeter">Centimeter</option>
-                <option value="meter">Meter</option>
-                <option value="kilometer">Kilometer</option>
-                <option value="inch">Inch</option>
-                <option value="foot">Foot</option>
-                <option value="yard">Yard</option>
-                <option value="mile">Mile</option>    
+                {renderUnitOptions()}
             </select>
             <button type="submit">Convert</button>
         </form>

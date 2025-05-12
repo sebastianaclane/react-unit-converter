@@ -8,30 +8,30 @@ function Form( {typeOfConverter} ) {
     let convertFromRef = useRef('');
     let convertToRef = useRef('');
 
-    const lengthUnits = [
-        { millimeter: "Millimeter" },
-        { centimeter: "Centimeter" },
-        { meter: "Meter" },
-        { kilometer: "Kilometer" },
-        { inch: "Inch" },
-        { foot: "Foot" },
-        { yard: "Yard" },
-        { mile: "Mile" }
-    ];
+    const lengthUnits = {
+        millimeter: "Millimeter",
+        centimeter: "Centimeter",
+        meter: "Meter",
+        kilometer: "Kilometer",
+        inch: "Inch",
+        foot: "Foot",
+        yard: "Yard",
+        mile: "Mile" 
+    };
 
-    const weightUnits = [
-        { milligram: "Milligram" },
-        { gram: "Gram" },
-        { kilogram: "Kilogram" },
-        { ounce: "Ounce" },
-        { pound: "Pound" }
-    ];
+    const weightUnits = {
+        milligram: "Milligram",
+        gram: "Gram",
+        kilogram: "Kilogram",
+        ounce: "Ounce",
+        pound: "Pound" 
+    };
 
-    const tempUnits = [
-        { celsius: "Celsius" },
-        { fahrenheit: "Fahrenheit" },
-        { kelvin: "Kelvin" }
-    ];
+    const tempUnits = {
+        celsius: "Celsius",
+        fahrenheit: "Fahrenheit",
+        kelvin: "Kelvin" 
+    };
 
     return (
         <form className="form grid gap-4">

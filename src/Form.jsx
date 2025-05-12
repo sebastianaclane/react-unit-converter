@@ -38,7 +38,7 @@ function Form( {typeOfConverter} ) {
             <label htmlFor="unitamount">Enter the <strong>{typeOfConverter}</strong> to convert</label>
             <input type="text" id="unitamount" name="unitamount" ref={unitAmountRef}/>
             <label htmlFor="convertfrom">Unit to Convert from</label>
-            <select name="convertfrom" ref={convertFromRef}>
+            <select id="convertfrom" name="convertfrom" ref={convertFromRef}>
                 <option value="millimeter">Millimeter</option>
                 <option value="centimeter">Centimeter</option>
                 <option value="meter">Meter</option>
@@ -49,7 +49,7 @@ function Form( {typeOfConverter} ) {
                 <option value="mile">Mile</option>
             </select>     
             <label htmlFor="convertto">Unit to Convert to</label>
-            <select name="convertto" ref={convertToRef}>
+            <select id="convertto" name="convertto" ref={convertToRef}>
                 <option value="millimeter">Millimeter</option>
                 <option value="centimeter">Centimeter</option>
                 <option value="meter">Meter</option>

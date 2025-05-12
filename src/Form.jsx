@@ -40,6 +40,15 @@ function Form( {typeOfConverter} ) {
         }
     }
 
+    function renderUnitOptions() {
+        const units = selectCurrentUnitSet();
+        return Object.entries(units).map(([value, label]) => (
+            <option key={value} value={value}>
+                {label}
+            </option>
+        ));
+    }
+
     return (
         <form className="form grid gap-4">
             <label htmlFor="unitamount">Enter the <strong>{typeOfConverter}</strong> to convert</label>

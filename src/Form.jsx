@@ -30,6 +30,15 @@ function Form( {typeOfConverter} ) {
         kelvin: "Kelvin" 
     };
 
+    let currentUnitOptions = {};
+    if (typeOfConverter == 'length') {
+        currentUnitOptions = lengthUnits;
+    } else if (typeOfConverter == 'weight') {
+        currentUnitOptions = weightUnits;
+    } else if (typeOfConverter == 'temperature') {
+        currentUnitOptions = tempUnits;
+    }
+
     return (
         <form className="form grid gap-4">
             <label htmlFor="unitamount">Enter the <strong>{typeOfConverter}</strong> to convert</label>

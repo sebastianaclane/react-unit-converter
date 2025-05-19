@@ -6,28 +6,28 @@ function Form( {typeOfConverter, convertedValue, setConvertedValue, conversionIn
     let toUnitRef = useRef('');
 
     const lengthUnits = {
-        millimeter: "Millimeter",
-        centimeter: "Centimeter",
-        meter: "Meter",
-        kilometer: "Kilometer",
-        inch: "Inch",
-        foot: "Foot",
-        yard: "Yard",
-        mile: "Mile" 
+        mm: "Millimeter",
+        cm: "Centimeter",
+        m: "Meter",
+        km: "Kilometer",
+        in: "Inch",
+        ft: "Foot",
+        yd: "Yard",
+        mi: "Mile" 
     };
 
     const weightUnits = {
-        milligram: "Milligram",
-        gram: "Gram",
-        kilogram: "Kilogram",
-        ounce: "Ounce",
-        pound: "Pound" 
+        mg: "Milligram",
+        g: "Gram",
+        kg: "Kilogram",
+        oz: "Ounce",
+        lb: "Pound" 
     };
 
     const tempUnits = {
-        celsius: "Celsius",
-        fahrenheit: "Fahrenheit",
-        kelvin: "Kelvin" 
+        c: "Celsius",
+        f: "Fahrenheit",
+        k: "Kelvin" 
     };
 
     // Select the current unit set based on the typeOfConverter prop
@@ -85,14 +85,14 @@ function Form( {typeOfConverter, convertedValue, setConvertedValue, conversionIn
 
     function convertLength(value, fromUnit, toUnit) {
         const lengthFactors = {
-            millimeter: 0.001,
-            centimeter: 0.01,
-            meter: 1,
-            kilometer: 1000,
-            inch: 0.0254,
-            foot: 0.3048,
-            yard: 0.9144,
-            mile: 1609.3445
+            mm: 0.001,
+            cm: 0.01,
+            m: 1,
+            km: 1000,
+            in: 0.0254,
+            ft: 0.3048,
+            yd: 0.9144,
+            mi: 1609.3445
         };
 
         const fromFactor = lengthFactors[fromUnit];
@@ -106,11 +106,11 @@ function Form( {typeOfConverter, convertedValue, setConvertedValue, conversionIn
 
     function convertWeight(value, fromUnit, toUnit) {
         const weightFactors = {
-            milligram: 0.001,
-            gram: 1,
-            kilogram: 1000,
-            ounce: 28.3495,
-            pound: 453.592
+            mg: 0.001,
+            g: 1,
+            kg: 1000,
+            oz: 28.3495,
+            lb: 453.592
         };
 
         const fromFactor = weightFactors[fromUnit];
@@ -125,15 +125,17 @@ function Form( {typeOfConverter, convertedValue, setConvertedValue, conversionIn
     function convertTemperature(value, fromUnit, toUnit) {
         let valueInCelsius;
 
+        // Note: "c" is celsius, "f" is fahrenheit, "k" is kelvin
+
         // Convert from any unit to Celsius
         switch(fromUnit) {
-            case "celsius": 
+            case "c": 
                 valueInCelsius = value;
                 break;
-            case "fahrenheit":
+            case "f":
                 valueInCelsius = (value - 32) * (5 / 9);
                 break;
-            case "kelvin":
+            case "k":
                 valueInCelsius = value - 273.15;
                 break;
         }
@@ -141,13 +143,13 @@ function Form( {typeOfConverter, convertedValue, setConvertedValue, conversionIn
         // Convert from Celsius to the target unit
         let result;
         switch(toUnit) {
-            case "celsius": 
+            case "c": 
                 result = valueInCelsius;
                 break;
-            case "fahrenheit":
+            case "f":
                 result = (valueInCelsius * 9 / 5) + 32;
                 break;
-            case "kelvin":
+            case "k":
                 result = valueInCelsius + 273.15;
                 break;
         }

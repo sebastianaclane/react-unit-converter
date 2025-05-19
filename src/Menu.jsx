@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function Menu( {changeTypeOfConverter} ) { 
+function Menu( {setTypeOfConverter} ) { 
     function handleMenuClick (event) {
         // Stop the link from changing the page
         event.preventDefault();
@@ -12,7 +12,7 @@ function Menu( {changeTypeOfConverter} ) {
             previousConverterLink.classList.remove("active");
             nextConverterLink.classList.add("active");
             // Change state to a different type of converter
-            changeTypeOfConverter(nextConverterLink.dataset.unitCategory);
+            setTypeOfConverter(nextConverterLink.dataset.unitCategory);
         }
     }
 

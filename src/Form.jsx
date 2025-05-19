@@ -73,6 +73,9 @@ function Form( {typeOfConverter, convertedValue, setConvertedValue, conversionIn
                 newConvertedValue = convertLength(unitAmount, fromUnit, toUnit);
                 break;
         }
+        // Round the newConvertedValue to 5 decimal places
+        newConvertedValue = parseFloat(newConvertedValue.toFixed(5));
+
         // Set new converted value to state
         setConvertedValue(newConvertedValue);
 

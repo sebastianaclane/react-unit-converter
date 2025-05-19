@@ -49,8 +49,19 @@ function Form( {typeOfConverter, convertedValue, setConvertedValue} ) {
         ));
     }
 
+    function handleConversion(event) {
+        // 1. Stop the form from submitting
+        event.preventDefault();
+        console.log("form submitted!");
+        console.log(unitAmountRef.current.value);
+        console.log(convertFromRef.current.value);
+        console.log(convertToRef.current.value);
+        // 2. Store a test value for convertedValue into state
+        setConvertedValue(60);
+    }
+
     return (
-        <form className="form grid gap-4">
+        <form className="form grid gap-4" onSubmit={handleConversion}>
             <label htmlFor="unitamount">Enter the <strong>{typeOfConverter}</strong> to convert</label>
             <input type="text" id="unitamount" name="unitamount" ref={unitAmountRef}/>
             <label htmlFor="convertfrom">Unit to Convert from</label>

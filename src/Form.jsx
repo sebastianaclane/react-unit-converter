@@ -81,7 +81,27 @@ function Form( {typeOfConverter, convertedValue, setConvertedValue, conversionIn
     }
 
     function convertLength(value, fromUnit, toUnit) {
+        const lengthFactors = {
+            millimeter: 0.001,
+            centimeter: 0.01,
+            meter: 1,
+            kilometer: 1000,
+            inch: 0.0254,
+            foot: 0.3048,
+            yard: 0.9144,
+            mile: 1609.3445
+        };
 
+        const fromFactor = lengthFactors[fromUnit];
+        const toFactor = lengthFactors[toUnit];
+
+        // Convert from 'fromUnit' to meters
+        const valueInMeters = value * fromFactor;
+
+        // Convert from meters to 'toUnit'
+        const result = valueInMeters / toFactor;
+
+        return result;
     }
 
     function convertWeight(value, fromUnit, toUnit) {

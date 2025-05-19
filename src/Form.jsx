@@ -91,9 +91,10 @@ function Form( {typeOfConverter, convertedValue, setConvertedValue, conversionIn
     function convertTemperature(value, fromUnit, toUnit) {
 
     }
-    
+
     function handleReset() {
         setConvertedValue(null);
+        setConversionInfo(null);
     }
 
     // if form hasn't been submitted and there is no convertedValue, return form below

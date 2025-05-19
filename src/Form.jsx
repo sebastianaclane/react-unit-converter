@@ -2,8 +2,8 @@ import { useState, useRef } from 'react'
 
 function Form( {typeOfConverter, convertedValue, setConvertedValue} ) {
     let unitAmountRef = useRef('');
-    let convertFromRef = useRef('');
-    let convertToRef = useRef('');
+    let fromUnitRef = useRef('');
+    let toUnitRef = useRef('');
 
     const lengthUnits = {
         millimeter: "Millimeter",
@@ -54,8 +54,8 @@ function Form( {typeOfConverter, convertedValue, setConvertedValue} ) {
         event.preventDefault();
         console.log("form submitted!");
         console.log(unitAmountRef.current.value);
-        console.log(convertFromRef.current.value);
-        console.log(convertToRef.current.value);
+        console.log(fromUnitRef.current.value);
+        console.log(toUnitRef.current.value);
         // 2. Store a test value for convertedValue into state
         setConvertedValue(60);
     }
@@ -71,11 +71,11 @@ function Form( {typeOfConverter, convertedValue, setConvertedValue} ) {
                 <label htmlFor="unitamount">Enter the <strong>{typeOfConverter}</strong> to convert</label>
                 <input type="text" id="unitamount" name="unitamount" ref={unitAmountRef}/>
                 <label htmlFor="fromunit">Unit to Convert from</label>
-                <select id="fromunit" name="fromunit" ref={convertFromRef}>
+                <select id="fromunit" name="fromunit" ref={fromUnitRef}>
                     {renderUnitOptions()}
                 </select>
                 <label htmlFor="tounit">Unit to Convert to</label>
-                <select id="tounit" name="tounit" ref={convertToRef}>
+                <select id="tounit" name="tounit" ref={toUnitRef}>
                     {renderUnitOptions()}
                 </select>
                 <button type="submit">Convert</button>

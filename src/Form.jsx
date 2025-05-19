@@ -102,7 +102,21 @@ function Form( {typeOfConverter, convertedValue, setConvertedValue, conversionIn
     }
 
     function convertWeight(value, fromUnit, toUnit) {
+        const weightFactors = {
+            milligram: 0.001,
+            gram: 1,
+            kilogram: 1000,
+            ounce: 28.3495,
+            pound: 453.592
+        };
 
+        const fromFactor = weightFactors[fromUnit];
+        const toFactor = weightFactors[toUnit];
+
+        const valueInGrams = value * fromFactor;
+        const result = valueInGrams / toFactor;
+
+        return result;
     }
 
     function convertTemperature(value, fromUnit, toUnit) {

@@ -120,7 +120,22 @@ function Form( {typeOfConverter, convertedValue, setConvertedValue, conversionIn
     }
 
     function convertTemperature(value, fromUnit, toUnit) {
+        let valueInCelsius;
 
+        // Convert from any unit to Celsius
+        switch(fromUnit) {
+            case "celsius": 
+                valueInCelsius = value;
+                break;
+            case "fahrenheit":
+                valueInCelsius = (value - 32) * (5 / 9);
+                break;
+            case "kelvin":
+                valueInCelsius = value - 273.15;
+                break;
+        }
+
+        return valueInCelsius;
     }
 
     function handleReset() {

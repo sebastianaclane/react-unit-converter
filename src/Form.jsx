@@ -70,12 +70,12 @@ function Form( {typeOfConverter, convertedValue, setConvertedValue} ) {
             <form className="form grid gap-4" onSubmit={handleConversion}>
                 <label htmlFor="unitamount">Enter the <strong>{typeOfConverter}</strong> to convert</label>
                 <input type="text" id="unitamount" name="unitamount" ref={unitAmountRef}/>
-                <label htmlFor="convertfrom">Unit to Convert from</label>
-                <select id="convertfrom" name="convertfrom" ref={convertFromRef}>
+                <label htmlFor="fromunit">Unit to Convert from</label>
+                <select id="fromunit" name="fromunit" ref={convertFromRef}>
                     {renderUnitOptions()}
                 </select>
-                <label htmlFor="convertto">Unit to Convert to</label>
-                <select id="convertto" name="convertto" ref={convertToRef}>
+                <label htmlFor="tounit">Unit to Convert to</label>
+                <select id="tounit" name="tounit" ref={convertToRef}>
                     {renderUnitOptions()}
                 </select>
                 <button type="submit">Convert</button>

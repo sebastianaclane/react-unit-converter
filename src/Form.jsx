@@ -50,14 +50,46 @@ function Form( {typeOfConverter, convertedValue, setConvertedValue, conversionIn
     }
 
     function handleConversion(event) {
-        // 1. Stop the form from submitting
+        // Stop the form from submitting
         event.preventDefault();
-        console.log("form submitted!");
-        console.log(unitAmountRef.current.value);
-        console.log(fromUnitRef.current.value);
-        console.log(toUnitRef.current.value);
-        // 2. Store a test value for convertedValue into state
-        setConvertedValue(60);
+
+        let unitAmount = parseFloat(unitAmountRef.current.value);
+        let fromUnit = fromUnitRef.current.value;
+        let toUnit = toUnitRef.current.value;
+
+        let newConvertedValue;
+
+        switch(typeOfConverter) {
+            case "length": 
+                newConvertedValue = convertLength(unitAmount, fromUnit, toUnit);
+                break;
+            case "weight":
+                newConvertedValue = convertWeight(unitAmount, fromUnit, toUnit);
+                break;
+            case "temperature":
+                newConvertedValue = convertTemperature(unitAmount, fromUnit, toUnit);
+                break;
+            default: 
+                newConvertedValue = convertLength(unitAmount, fromUnit, toUnit);
+                break;
+        }
+        // Set new converted value to state
+        setConvertedValue(newConvertedValue);
+
+        // Store input info for later display
+        setConversionInfo({unitAmount, fromUnit, toUnit});
+    }
+
+    function convertLength(value, fromUnit, toUnit) {
+
+    }
+
+    function convertWeight(value, fromUnit, toUnit) {
+
+    }
+
+    function convertTemperature(value, fromUnit, toUnit) {
+
     }
     
     function handleReset() {
@@ -85,7 +117,9 @@ function Form( {typeOfConverter, convertedValue, setConvertedValue, conversionIn
         // form has been submitted and there is a convertedValue, return result and a reset button
         return <>
                 <p>Result of your calculation</p>
-                <p>{convertedValue}</p>
+                <br/>
+                <p><strong>{conversionInfo.unitAmount} {conversionInfo.fromUnit} = {convertedValue} {conversionInfo.toUnit}</strong></p>
+                <br/>
                 <button type="reset" onClick={handleReset}>Reset</button>
                </> 
     }

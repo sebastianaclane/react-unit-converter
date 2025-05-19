@@ -79,9 +79,27 @@ function Form( {typeOfConverter, convertedValue, setConvertedValue, conversionIn
         // Set new converted value to state
         setConvertedValue(newConvertedValue);
 
+        // Display proper temperature symbols
+        if (typeOfConverter == "temperature") {
+            fromUnit = convertToTempSymbol(fromUnit);
+            toUnit = convertToTempSymbol(toUnit);
+        }
+
         // Store input info for later display
         setConversionInfo({unitAmount, fromUnit, toUnit});
     }
+
+    // Convert temperature letter into the correct symbol
+    function convertToTempSymbol(tempLetter) {
+        if (tempLetter == "c") {
+            return "°C";
+        } else if (tempLetter == "f") {
+            return "°F";
+        } else if (tempLetter == "k") {
+            return tempLetter.toUpperCase();
+        }
+    }
+
 
     function convertLength(value, fromUnit, toUnit) {
         const lengthFactors = {

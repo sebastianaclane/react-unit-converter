@@ -96,7 +96,7 @@ function Form( {typeOfConverter, convertedValue, setConvertedValue, conversionIn
         } else if (tempLetter == "f") {
             return "°F";
         } else if (tempLetter == "k") {
-            return tempLetter.toUpperCase();
+            return "K";
         }
     }
 

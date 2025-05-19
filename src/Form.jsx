@@ -135,7 +135,21 @@ function Form( {typeOfConverter, convertedValue, setConvertedValue, conversionIn
                 break;
         }
 
-        return valueInCelsius;
+        // Convert from Celsius to the target unit
+        let result;
+        switch(toUnit) {
+            case "celsius": 
+                result = valueInCelsius;
+                break;
+            case "fahrenheit":
+                result = (valueInCelsius * 9 / 5) + 32;
+                break;
+            case "kelvin":
+                result = valueInCelsius + 273.15;
+                break;
+        }
+
+        return result;
     }
 
     function handleReset() {

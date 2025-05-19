@@ -10,7 +10,7 @@ function App() {
     <>
       <h1>React Unit Converter</h1>
       <Menu setTypeOfConverter={setTypeOfConverter} />
-      <Form typeOfConverter={typeOfConverter} convertedValue={convertedValue} />
+      <Form typeOfConverter={typeOfConverter} convertedValue={convertedValue} setConvertedValue={setConvertedValue} />
     </>
   )
 }

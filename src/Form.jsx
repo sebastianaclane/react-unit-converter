@@ -95,10 +95,7 @@ function Form( {typeOfConverter, convertedValue, setConvertedValue, conversionIn
         const fromFactor = lengthFactors[fromUnit];
         const toFactor = lengthFactors[toUnit];
 
-        // Convert from 'fromUnit' to meters
         const valueInMeters = value * fromFactor;
-
-        // Convert from meters to 'toUnit'
         const result = valueInMeters / toFactor;
 
         return result;

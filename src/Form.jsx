@@ -59,22 +59,36 @@ function Form( {typeOfConverter, convertedValue, setConvertedValue} ) {
         // 2. Store a test value for convertedValue into state
         setConvertedValue(60);
     }
+    
+    function handleReset() {
+        setConvertedValue(null);
+    }
 
-    return (
-        <form className="form grid gap-4" onSubmit={handleConversion}>
-            <label htmlFor="unitamount">Enter the <strong>{typeOfConverter}</strong> to convert</label>
-            <input type="text" id="unitamount" name="unitamount" ref={unitAmountRef}/>
-            <label htmlFor="convertfrom">Unit to Convert from</label>
-            <select id="convertfrom" name="convertfrom" ref={convertFromRef}>
-                {renderUnitOptions()}
-            </select>
-            <label htmlFor="convertto">Unit to Convert to</label>
-            <select id="convertto" name="convertto" ref={convertToRef}>
-                {renderUnitOptions()}
-            </select>
-            <button type="submit">Convert</button>
-        </form>
-    );
+    // if form hasn't been submitted and there is no convertedValue, return form below
+    if (convertedValue == null) {
+        return (
+            <form className="form grid gap-4" onSubmit={handleConversion}>
+                <label htmlFor="unitamount">Enter the <strong>{typeOfConverter}</strong> to convert</label>
+                <input type="text" id="unitamount" name="unitamount" ref={unitAmountRef}/>
+                <label htmlFor="convertfrom">Unit to Convert from</label>
+                <select id="convertfrom" name="convertfrom" ref={convertFromRef}>
+                    {renderUnitOptions()}
+                </select>
+                <label htmlFor="convertto">Unit to Convert to</label>
+                <select id="convertto" name="convertto" ref={convertToRef}>
+                    {renderUnitOptions()}
+                </select>
+                <button type="submit">Convert</button>
+            </form>
+        );
+    } else {
+        // form has been submitted and there is a convertedValue, return result and a reset button
+        return <>
+                <p>Result of your calculation</p>
+                <p>{convertedValue}</p>
+                <button type="reset" onClick={handleReset}>Reset</button>
+               </> 
+    }
 }
 
 export default Form;

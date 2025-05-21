@@ -5,50 +5,6 @@ function Form( {typeOfConverter, convertedValue, setConvertedValue, conversionIn
     let fromUnitRef = useRef('');
     let toUnitRef = useRef('');
 
-    const lengthUnits = {
-        mm: "Millimeter",
-        cm: "Centimeter",
-        m: "Meter",
-        km: "Kilometer",
-        in: "Inch",
-        ft: "Foot",
-        yd: "Yard",
-        mi: "Mile" 
-    };
-
-    const weightUnits = {
-        mg: "Milligram",
-        g: "Gram",
-        kg: "Kilogram",
-        oz: "Ounce",
-        lb: "Pound" 
-    };
-
-    const tempUnits = {
-        c: "Celsius",
-        f: "Fahrenheit",
-        k: "Kelvin" 
-    };
-
-    // Select the current unit set based on the typeOfConverter prop
-    function selectCurrentUnitSet() {
-        switch(typeOfConverter) {
-            case "length": return lengthUnits;
-            case "weight": return weightUnits;
-            case "temperature": return tempUnits;
-            default: return lengthUnits;
-        }
-    }
-
-    function renderUnitOptions() {
-        const units = selectCurrentUnitSet();
-        return Object.entries(units).map(([value, label]) => (
-            <option key={value} value={value}>
-                {label}
-            </option>
-        ));
-    }
-
     function handleConversion(event) {
         // Stop the form from submitting
         event.preventDefault();
@@ -173,6 +129,50 @@ function Form( {typeOfConverter, convertedValue, setConvertedValue, conversionIn
         }
 
         return result;
+    }
+
+    const lengthUnits = {
+        mm: "Millimeter",
+        cm: "Centimeter",
+        m: "Meter",
+        km: "Kilometer",
+        in: "Inch",
+        ft: "Foot",
+        yd: "Yard",
+        mi: "Mile" 
+    };
+
+    const weightUnits = {
+        mg: "Milligram",
+        g: "Gram",
+        kg: "Kilogram",
+        oz: "Ounce",
+        lb: "Pound" 
+    };
+
+    const tempUnits = {
+        c: "Celsius",
+        f: "Fahrenheit",
+        k: "Kelvin" 
+    };
+    
+    // Select the current unit set based on the typeOfConverter prop
+    function selectCurrentUnitSet() {
+        switch(typeOfConverter) {
+            case "length": return lengthUnits;
+            case "weight": return weightUnits;
+            case "temperature": return tempUnits;
+            default: return lengthUnits;
+        }
+    }
+
+    function renderUnitOptions() {
+        const units = selectCurrentUnitSet();
+        return Object.entries(units).map(([value, label]) => (
+            <option key={value} value={value}>
+                {label}
+            </option>
+        ));
     }
 
     function handleReset() {

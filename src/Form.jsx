@@ -1,6 +1,9 @@
 import { useState, useRef } from 'react'
 
-function Form( {typeOfConverter, convertedValue, setConvertedValue, conversionInfo, setConversionInfo} ) {
+function Form( {typeOfConverter} ) {
+    const [convertedValue, setConvertedValue] = useState(null);
+    const [conversionInfo, setConversionInfo] = useState(null);
+    
     let unitAmountRef = useRef('');
     let fromUnitRef = useRef('');
     let toUnitRef = useRef('');

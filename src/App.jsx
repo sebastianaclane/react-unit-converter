@@ -4,8 +4,6 @@ import Form from './Form';
 
 function App() {
   const [typeOfConverter, setTypeOfConverter] = useState("length");
-  const [convertedValue, setConvertedValue] = useState(null);
-  const [conversionInfo, setConversionInfo] = useState(null);
   
   return (
     <>
@@ -13,10 +11,6 @@ function App() {
       <Menu setTypeOfConverter={setTypeOfConverter} />
       <Form 
         typeOfConverter={typeOfConverter}
-        convertedValue={convertedValue}
-        setConvertedValue={setConvertedValue}
-        conversionInfo={conversionInfo}
-        setConversionInfo={setConversionInfo}
       />
     </>
   )

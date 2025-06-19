@@ -235,6 +235,7 @@ function Form( {typeOfConverter} ) {
                     inputMode="decimal"
                     onInput={validateInput}
                 />
+                { formErrorMessage !== "" && <p className="text-red-600 text-sm">{formErrorMessage}</p> }                
                 <label htmlFor="fromunit">Unit to Convert from</label>
                 <select id="fromunit" name="fromunit" ref={fromUnitRef}>
                     {renderUnitOptions()}

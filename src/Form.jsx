@@ -77,7 +77,7 @@ function Form( {typeOfConverter} ) {
         setConvertedValue(newConvertedValue);
 
         // Display proper temperature symbols
-        if (typeOfConverter == "temperature") {
+        if (typeOfConverter === "temperature") {
             fromUnit = convertToTempSymbol(fromUnit);
             toUnit = convertToTempSymbol(toUnit);
         }
@@ -88,11 +88,11 @@ function Form( {typeOfConverter} ) {
 
     // Convert temperature letter into the correct symbol
     function convertToTempSymbol(tempLetter) {
-        if (tempLetter == "c") {
+        if (tempLetter === "c") {
             return "°C";
-        } else if (tempLetter == "f") {
+        } else if (tempLetter === "f") {
             return "°F";
-        } else if (tempLetter == "k") {
+        } else if (tempLetter === "k") {
             return "K";
         }
     }

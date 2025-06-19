@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 function Form( {typeOfConverter} ) {
     const [convertedValue, setConvertedValue] = useState(null);
@@ -8,6 +8,12 @@ function Form( {typeOfConverter} ) {
     let unitAmountRef = useRef('');
     let fromUnitRef = useRef('');
     let toUnitRef = useRef('');
+
+    // Clear result and error messages when typeOfConverter state changes
+    useEffect(() => {
+        handleReset();
+    }, [typeOfConverter]);
+
     function validateInput() {
         const rawValue = unitAmountRef.current.value.trim();
         
@@ -220,6 +226,10 @@ function Form( {typeOfConverter} ) {
         setConvertedValue(null);
         setConversionInfo(null);
         setFormErrorMessage("");
+        // clear input field
+        if (unitAmountRef.current) {
+            unitAmountRef.current.value = "";
+        }
     }
 
     // if form hasn't been submitted and there is no convertedValue, return form below

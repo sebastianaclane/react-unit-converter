@@ -227,7 +227,14 @@ function Form( {typeOfConverter} ) {
         return (
             <form className="form grid gap-4" onSubmit={handleConversion}>
                 <label htmlFor="unitamount">Enter the <strong>{typeOfConverter}</strong> to convert</label>
-                <input type="text" id="unitamount" name="unitamount" ref={unitAmountRef}/>
+                <input 
+                    type="text"
+                    id="unitamount"
+                    name="unitamount"
+                    ref={unitAmountRef}
+                    inputMode="decimal"
+                    onInput={validateInput}
+                />
                 <label htmlFor="fromunit">Unit to Convert from</label>
                 <select id="fromunit" name="fromunit" ref={fromUnitRef}>
                     {renderUnitOptions()}

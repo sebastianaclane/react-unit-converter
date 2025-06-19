@@ -3,16 +3,54 @@ import { useState, useRef } from 'react'
 function Form( {typeOfConverter} ) {
     const [convertedValue, setConvertedValue] = useState(null);
     const [conversionInfo, setConversionInfo] = useState(null);
+    const [formErrorMessage, setFormErrorMessage] = useState("");
     
     let unitAmountRef = useRef('');
     let fromUnitRef = useRef('');
     let toUnitRef = useRef('');
+    function validateInput() {
+        const rawValue = unitAmountRef.current.value.trim();
+        
+        // Empty space error
+        if (rawValue === "") {
+            setFormErrorMessage("");
+            return false;
+        }
+
+        // Please remove any non number characters error
+        const validNumberRegex = /^-?\d*\.?\d*$/;
+        if (!validNumberRegex.test(rawValue)) {
+            setFormErrorMessage("Please remove non-number characters");
+            return false;
+        }
+
+        const parsedValue = parseFloat(rawValue);
+
+        // Not a number error
+        if (isNaN(parsedValue)) {
+            setFormErrorMessage("That is not a number, please enter a number");
+            return false;
+        }
+
+        // Not a positive number for length and weight converters error
+        if (parsedValue <= 0 && typeOfConverter !== "temperature") {
+            setFormErrorMessage("Please enter a number greater than 0.");
+            return false;
+        }
+
+        // Input has been validated
+        setFormErrorMessage("");
+        return true;
+    }
 
     function handleConversion(event) {
         // Stop the form from submitting
         event.preventDefault();
 
-        let unitAmount = parseFloat(unitAmountRef.current.value);
+        // Validation: Prevent form submission unless unitAmount input is valid
+        if (!validateInput()) return;
+
+        const unitAmount = parseFloat(unitAmountRef.current.value);
         let fromUnit = fromUnitRef.current.value;
         let toUnit = toUnitRef.current.value;
 
@@ -181,6 +219,7 @@ function Form( {typeOfConverter} ) {
     function handleReset() {
         setConvertedValue(null);
         setConversionInfo(null);
+        setFormErrorMessage("");
     }
 
     // if form hasn't been submitted and there is no convertedValue, return form below

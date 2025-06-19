@@ -84,6 +84,12 @@ button {
   transition: border-color 0.25s;
   margin-top: 1em;
 }
+button:disabled {
+  background-color: #e7e9ec;
+  color: #808080;
+  cursor: not-allowed;
+  border: 2px solid #D4030C;
+}
 button:hover {
   border-color: #646cff;
 }

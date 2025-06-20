@@ -43,6 +43,10 @@ h1 {
   text-align: center;
 }
 
+h3 {
+  font-size: 1.5em;
+}
+
 .menu {
   margin-bottom: 2em;
 }

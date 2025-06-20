@@ -285,9 +285,9 @@ function Form( {typeOfConverter} ) {
     } else {
         // form has been submitted and there is a convertedValue, return result and a reset button
         return <>
-                <p>Result of your calculation</p>
+                <h3>Result of your calculation</h3>
                 <br/>
-                <p><strong>{conversionInfo.unitAmount} {conversionInfo.fromUnit} = {convertedValue} {conversionInfo.toUnit}</strong></p>
+                <p className="text-[#dd64ff]"><strong>{conversionInfo.unitAmount} {conversionInfo.fromUnit} = {convertedValue} {conversionInfo.toUnit}</strong></p>
                 <br/>
                 <button
                     type="reset" 

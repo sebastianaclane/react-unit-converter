@@ -58,46 +58,6 @@ h1 {
   margin: 0 auto;
 }
 
-input, select {
-  border: 1px solid #FFF;
-  border-radius: 8px;
-  padding: 0.5em 1em;
-}
-
-select {
-  padding: 0.6em 1em;
-}
-
-select option {
-  background-color: #242424;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid #FFF;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-  margin-top: 1em;
-}
-button:disabled {
-  background-color: #e7e9ec;
-  color: #808080;
-  cursor: not-allowed;
-  border: 2px solid #D4030C;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

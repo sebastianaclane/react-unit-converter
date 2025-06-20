@@ -236,7 +236,9 @@ function Form( {typeOfConverter} ) {
     if (convertedValue == null) {
         return (
             <form className="form grid gap-4" onSubmit={handleConversion}>
-                <label htmlFor="unitamount">Enter the <strong>{typeOfConverter}</strong> to convert</label>
+                <label htmlFor="unitamount" className="font-medium">
+                    Enter the <span className="text-[#dd64ff]"><strong>{typeOfConverter}</strong></span> to convert
+                </label>
                 <input 
                     type="text"
                     id="unitamount"
@@ -244,18 +246,40 @@ function Form( {typeOfConverter} ) {
                     ref={unitAmountRef}
                     inputMode="decimal"
                     onInput={validateInput}
-                    className={formErrorMessage !== "" ? "border-red-500" : ""}
+                    className={`rounded-md border px-4 py-2 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                        formErrorMessage !== "" ? "border-red-500" : "border-white"
+                    }`}
                 />
                 { formErrorMessage !== "" && <p className="text-red-600 text-sm">{formErrorMessage}</p> }                
-                <label htmlFor="fromunit">Unit to Convert from</label>
-                <select id="fromunit" name="fromunit" ref={fromUnitRef}>
+                <label htmlFor="fromunit" className="font-medium">Unit to Convert from</label>
+                <select 
+                    id="fromunit" 
+                    name="fromunit"
+                    ref={fromUnitRef}
+                    className="rounded-md border border-white px-4 py-2 bg-[#242424] text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
                     {renderUnitOptions()}
                 </select>
-                <label htmlFor="tounit">Unit to Convert to</label>
-                <select id="tounit" name="tounit" ref={toUnitRef}>
+                <label htmlFor="tounit" className="font-medium">Unit to Convert to</label>
+                <select
+                    id="tounit"
+                    name="tounit"
+                    ref={toUnitRef}
+                    className="rounded-md border border-white px-4 py-2 bg-[#242424] text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
                     {renderUnitOptions()}
                 </select>
-                <button type="submit" disabled={formErrorMessage !== ""}>Convert</button>
+                <button 
+                    type="submit"
+                    disabled={formErrorMessage !== ""}
+                    className={`mt-4 rounded-md border px-4 py-3 text-sm font-semibold transition ${
+                    formErrorMessage !== ""
+                        ? "bg-gray-300 text-gray-600 cursor-not-allowed border-red-600"
+                        : "bg-[#1a1a1a] text-white hover:border-blue-400 border-white"
+                    }`}
+                >
+                    Convert
+                </button>
             </form>
         );
     } else {
@@ -265,7 +289,13 @@ function Form( {typeOfConverter} ) {
                 <br/>
                 <p><strong>{conversionInfo.unitAmount} {conversionInfo.fromUnit} = {convertedValue} {conversionInfo.toUnit}</strong></p>
                 <br/>
-                <button type="reset" onClick={handleReset}>Reset</button>
+                <button
+                    type="reset" 
+                    onClick={handleReset}
+                    className="mt-4 rounded-md border px-6 py-3 text-sm font-semibold transition bg-[#1a1a1a] text-white hover:border-blue-400 border-white"
+                >
+                    Reset
+                </button>
                </> 
     }
 }

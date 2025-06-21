@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import { Confetti } from 'react-confetti';
 
 function Form( {typeOfConverter} ) {
     const [convertedValue, setConvertedValue] = useState(null);

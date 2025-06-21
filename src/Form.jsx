@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { Confetti } from 'react-confetti';
+import Confetti from 'react-confetti';
 
 function Form( {typeOfConverter} ) {
     const [convertedValue, setConvertedValue] = useState(null);
@@ -286,6 +286,7 @@ function Form( {typeOfConverter} ) {
     } else {
         // form has been submitted and there is a convertedValue, return result and a reset button
         return <>
+                <Confetti />
                 <h3>Result of your calculation</h3>
                 <br/>
                 <p className="text-[#dd64ff]"><strong>{conversionInfo.unitAmount} {conversionInfo.fromUnit} = {convertedValue} {conversionInfo.toUnit}</strong></p>
